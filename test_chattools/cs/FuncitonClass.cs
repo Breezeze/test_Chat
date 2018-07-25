@@ -56,8 +56,6 @@ namespace test_chattools.cs
                 int index = str.IndexOf(':');
                 string cmd = str.Substring(0, index);
                 string par = str.Substring(index + 1);
-                Console.WriteLine(cmd);
-                Console.WriteLine(par);
                 switch (cmd)
                 {
                     case "say":

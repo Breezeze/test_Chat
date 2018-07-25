@@ -4,3 +4,9 @@ D:\专业\网络中心\项目-C#\test_chattools\test_chattools\bin\Debug\test_ch
 D:\专业\网络中心\项目-C#\test_chattools\test_chattools\bin\Debug\test_chattools.pdb
 D:\专业\网络中心\项目-C#\test_chattools\test_chattools\obj\Debug\test_chattools.exe
 D:\专业\网络中心\项目-C#\test_chattools\test_chattools\obj\Debug\test_chattools.pdb
+C:\Users\Administrator\Desktop\新建文件夹\test_Chat\test_chattools\bin\Debug\test_chattools.exe.config
+C:\Users\Administrator\Desktop\新建文件夹\test_Chat\test_chattools\bin\Debug\test_chattools.exe
+C:\Users\Administrator\Desktop\新建文件夹\test_Chat\test_chattools\bin\Debug\test_chattools.pdb
+C:\Users\Administrator\Desktop\新建文件夹\test_Chat\test_chattools\obj\Debug\test_chattools.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\新建文件夹\test_Chat\test_chattools\obj\Debug\test_chattools.exe
+C:\Users\Administrator\Desktop\新建文件夹\test_Chat\test_chattools\obj\Debug\test_chattools.pdb
