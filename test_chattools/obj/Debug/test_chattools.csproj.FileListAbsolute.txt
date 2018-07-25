@@ -1,0 +1,6 @@
+D:\专业\网络中心\项目-C#\test_chattools\test_chattools\bin\Debug\test_chattools.exe.config
+D:\专业\网络中心\项目-C#\test_chattools\test_chattools\obj\Debug\test_chattools.csprojResolveAssemblyReference.cache
+D:\专业\网络中心\项目-C#\test_chattools\test_chattools\bin\Debug\test_chattools.exe
+D:\专业\网络中心\项目-C#\test_chattools\test_chattools\bin\Debug\test_chattools.pdb
+D:\专业\网络中心\项目-C#\test_chattools\test_chattools\obj\Debug\test_chattools.exe
+D:\专业\网络中心\项目-C#\test_chattools\test_chattools\obj\Debug\test_chattools.pdb
