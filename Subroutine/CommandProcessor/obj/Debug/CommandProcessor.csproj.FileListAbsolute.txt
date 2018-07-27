@@ -1,0 +1,5 @@
+C:\Users\Administrator\Desktop\test_Chat\Subroutine\UserInterface\bin\Debug\CommandProcessor.dll
+C:\Users\Administrator\Desktop\test_Chat\Subroutine\UserInterface\bin\Debug\CommandProcessor.pdb
+C:\Users\Administrator\Desktop\test_Chat\Subroutine\CommandProcessor\obj\Debug\CommandProcessor.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\test_Chat\Subroutine\CommandProcessor\obj\Debug\CommandProcessor.dll
+C:\Users\Administrator\Desktop\test_Chat\Subroutine\CommandProcessor\obj\Debug\CommandProcessor.pdb

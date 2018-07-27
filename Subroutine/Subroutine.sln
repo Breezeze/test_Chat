@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Subroutine", "Subroutine\Subroutine.csproj", "{71AB9A6A-890D-49BC-8A97-54EFB3A43079}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserInterface", "UserInterface\UserInterface.csproj", "{71AB9A6A-890D-49BC-8A97-54EFB3A43079}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommandService", "CommandService\CommandService.csproj", "{038C64FC-7E5E-4A38-9B62-94F913A1B029}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommandServices", "CommandServices\CommandServices.csproj", "{038C64FC-7E5E-4A38-9B62-94F913A1B029}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MountCommand", "MountCommand\MountCommand.csproj", "{6631AFA2-2AB0-4B52-843E-86AB89BEE389}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommandProcessor", "CommandProcessor\CommandProcessor.csproj", "{6631AFA2-2AB0-4B52-843E-86AB89BEE389}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

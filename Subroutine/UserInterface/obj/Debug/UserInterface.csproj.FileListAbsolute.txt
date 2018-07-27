@@ -1,0 +1,10 @@
+C:\Users\Administrator\Desktop\test_Chat\Subroutine\Subroutine\bin\Debug\UserInterface.exe.config
+C:\Users\Administrator\Desktop\test_Chat\Subroutine\UserInterface\bin\Debug\UserInterface.exe.config
+C:\Users\Administrator\Desktop\test_Chat\Subroutine\UserInterface\obj\Debug\UserInterface.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\test_Chat\Subroutine\UserInterface\bin\Debug\UserInterface.exe
+C:\Users\Administrator\Desktop\test_Chat\Subroutine\UserInterface\bin\Debug\UserInterface.pdb
+C:\Users\Administrator\Desktop\test_Chat\Subroutine\UserInterface\bin\Debug\CommandServices.dll
+C:\Users\Administrator\Desktop\test_Chat\Subroutine\UserInterface\bin\Debug\CommandProcessor.pdb
+C:\Users\Administrator\Desktop\test_Chat\Subroutine\UserInterface\bin\Debug\CommandServices.pdb
+C:\Users\Administrator\Desktop\test_Chat\Subroutine\UserInterface\obj\Debug\UserInterface.exe
+C:\Users\Administrator\Desktop\test_Chat\Subroutine\UserInterface\obj\Debug\UserInterface.pdb
