@@ -2,19 +2,18 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using CommandClass;
 
 namespace Subroutine
 {
     class Program
     {
-        static List<Type> _subClassList;
+        private static List<Type> _subClassList;
+
         static void Main(string[] args)
         {
             string _userInput;
-            _subClassList = (from t in Assembly.GetExecutingAssembly().GetTypes()
-                             where IsSubClass(t, typeof(Command))
-                             select t).ToList();
-            Console.WriteLine("提示：命令行语法请输入“CMD”进行查看！");
+            Initialize();
             do
             {
                 _userInput = Console.ReadLine();
@@ -30,6 +29,14 @@ namespace Subroutine
                 }
             } while (_userInput != "exit");
 
+        }
+
+        private static void Initialize()
+        {
+            _subClassList = (from t in Assembly.LoadFrom("CommandClass.dll").GetTypes()
+                             where IsSubClass(t, typeof(Command))
+                             select t).ToList();
+            Console.WriteLine("提示：命令行语法请输入“CMD”进行查看！");
         }
 
         static bool IsSubClass(Type type, Type baseType)
@@ -93,7 +100,7 @@ namespace Subroutine
 
                 foreach (Type type in _subClassList)
                 {
-                    if (type.Name == cmd)
+                    if (type.Name.ToLower() == cmd.ToLower())
                     {
                         object objSubClass = Activator.CreateInstance(type);
                         ((Command)objSubClass).Do(msg);

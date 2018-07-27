@@ -4,3 +4,10 @@ C:\Users\Administrator\Desktop\新建文件夹\test_Chat\Subroutine\Subroutine\o
 C:\Users\Administrator\Desktop\新建文件夹\test_Chat\Subroutine\Subroutine\bin\Debug\Subroutine.exe.config
 C:\Users\Administrator\Desktop\新建文件夹\test_Chat\Subroutine\Subroutine\bin\Debug\Subroutine.exe
 C:\Users\Administrator\Desktop\新建文件夹\test_Chat\Subroutine\Subroutine\obj\Debug\Subroutine.exe
+C:\Users\Administrator\Desktop\test_Chat\Subroutine\Subroutine\bin\Debug\Subroutine.exe.config
+C:\Users\Administrator\Desktop\test_Chat\Subroutine\Subroutine\obj\Debug\Subroutine.exe
+C:\Users\Administrator\Desktop\test_Chat\Subroutine\Subroutine\obj\Debug\Subroutine.pdb
+C:\Users\Administrator\Desktop\test_Chat\Subroutine\Subroutine\bin\Debug\Subroutine.exe
+C:\Users\Administrator\Desktop\test_Chat\Subroutine\Subroutine\bin\Debug\Subroutine.pdb
+C:\Users\Administrator\Desktop\test_Chat\Subroutine\Subroutine\obj\Debug\Subroutine.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\test_Chat\Subroutine\Subroutine\bin\Debug\CommandClass.pdb
