@@ -1,80 +1,108 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Reflection;
 
 namespace Subroutine
 {
     class Program
     {
+        static List<Type> _subClassList;
         static void Main(string[] args)
         {
+            string _userInput;
+            _subClassList = (from t in Assembly.GetExecutingAssembly().GetTypes()
+                             where IsSubClass(t, typeof(Command))
+                             select t).ToList();
             Console.WriteLine("提示：命令行语法请输入“CMD”进行查看！");
-            string msg;
             do
             {
-                msg = Console.ReadLine();
-                if (msg == "CMD")
+                _userInput = Console.ReadLine();
+                if (_userInput == "CMD")
                 {
-                    string tip = "命令行语法为： 命令行关键字 + 关键词参数 + \":\" + 参数\n"
+                    string _tip = "命令行语法为： 命令行关键字 + 关键词参数 + \":\" + 参数\n"
                                + "命令行关键字有：say,file,music等\n例如：“say:hello world”  表示发送消息“hello world”给对方\n“file:C:\\123.txt” 表示把 123.txt 文件发送给对方";
-                    Console.WriteLine(tip);
+                    Console.WriteLine(_tip);
                 }
                 else
                 {
-                    Chat(msg);
+                    AnalysisCode(_userInput);
                 }
-            } while (msg != "exit");
+            } while (_userInput != "exit");
 
+        }
 
-
+        static bool IsSubClass(Type type, Type baseType)
+        {
+            var b = type.BaseType;
+            while (b != null)
+            {
+                if (b.Equals(baseType))
+                {
+                    return true;
+                }
+                b = b.BaseType;
+            }
+            return false;
         }
 
 
         /// <summary>
         /// 解析命令行
         /// </summary>
-        /// <param name="str"></param>
-        public static void Chat(string str)
+        /// <param name="userInput"></param>
+        public static void AnalysisCode(string userInput)
         {
             try
             {
-                int index = str.IndexOf(':');
-                string cmd = str.Substring(0, index);
-                string msg = str.Substring(index + 1);
-                switch (cmd)
+                int colonIndex = userInput.IndexOf(':');
+                string cmd = userInput.Substring(0, colonIndex);
+                string msg = userInput.Substring(colonIndex + 1);
+
+                #region 初始版本
+
+                //switch (cmd)
+                //{
+                //    case "say":
+                //        //发送字符串给指定好友
+                //        Console.WriteLine("已将消息“{0}”发送给对方！", msg);
+                //        break;
+                //    case "file":
+                //        if (File.Exists(msg))
+                //        {
+                //            //发送文件
+                //            Console.WriteLine("已将路径为“{0}”的文件发送给对方！", msg);
+                //        }
+                //        else
+                //        {
+                //            Console.WriteLine("请检查该文件（“{0}”）是否存在！", msg);
+                //        }
+                //        break;
+                //    case "music":
+                //        Console.WriteLine("已将名为“{0}”的歌曲推荐给对方！", msg);
+                //        break;
+                //    case "acticle":
+                //        Console.WriteLine("已将名为“{0}”的文章推荐给对方！", msg);
+                //        break;
+                //    default:
+                //        Console.WriteLine("未知命令“{0}”！", str);
+                //        break;
+                //}
+
+                #endregion
+
+                foreach (Type type in _subClassList)
                 {
-                    case "say":
-                        //发送字符串给指定好友
-                        Console.WriteLine("已将消息“{0}”发送给对方！", msg);
-                        break;
-                    case "file":
-                        if (File.Exists(msg))
-                        {
-                            //发送文件
-                            Console.WriteLine("已将路径为“{0}”的文件发送给对方！", msg);
-                        }
-                        else
-                        {
-                            Console.WriteLine("请检查该文件（“{0}”）是否存在！", msg);
-                        }
-                        break;
-                    case "music":
-                        Console.WriteLine("已将名为“{0}”的歌曲推荐给对方！", msg);
-                        break;
-                    case "acticle":
-                        Console.WriteLine("已将名为“{0}”的文章推荐给对方！", msg);
-                        break;
-                    default:
-                        Console.WriteLine("未知命令“{0}”！", str);
-                        break;
+                    if (type.Name == cmd)
+                    {
+                        object objSubClass = Activator.CreateInstance(type);
+                        ((Command)objSubClass).Do(msg);
+                    }
                 }
             }
             catch (Exception)
             {
-                Console.WriteLine("未知命令“{0}”！", str);
+                Console.WriteLine("未知命令“{0}”！", userInput);
             }
         }
     }

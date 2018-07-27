@@ -1,1 +1,6 @@
 D:\专业\网络中心\项目-C#\Subroutine\Subroutine\bin\Debug\Subroutine.exe.config
+C:\Users\Administrator\Desktop\新建文件夹\test_Chat\Subroutine\Subroutine\bin\Debug\Subroutine.pdb
+C:\Users\Administrator\Desktop\新建文件夹\test_Chat\Subroutine\Subroutine\obj\Debug\Subroutine.pdb
+C:\Users\Administrator\Desktop\新建文件夹\test_Chat\Subroutine\Subroutine\bin\Debug\Subroutine.exe.config
+C:\Users\Administrator\Desktop\新建文件夹\test_Chat\Subroutine\Subroutine\bin\Debug\Subroutine.exe
+C:\Users\Administrator\Desktop\新建文件夹\test_Chat\Subroutine\Subroutine\obj\Debug\Subroutine.exe
