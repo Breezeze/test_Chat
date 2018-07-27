@@ -1,0 +1,7 @@
+C:\Users\Administrator\Desktop\test_Chat\Subroutine\MountCommand\bin\Debug\MountCommand.dll
+C:\Users\Administrator\Desktop\test_Chat\Subroutine\MountCommand\bin\Debug\MountCommand.pdb
+C:\Users\Administrator\Desktop\test_Chat\Subroutine\MountCommand\bin\Debug\CommandService.dll
+C:\Users\Administrator\Desktop\test_Chat\Subroutine\MountCommand\bin\Debug\CommandService.pdb
+C:\Users\Administrator\Desktop\test_Chat\Subroutine\MountCommand\obj\Debug\MountCommand.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\test_Chat\Subroutine\MountCommand\obj\Debug\MountCommand.dll
+C:\Users\Administrator\Desktop\test_Chat\Subroutine\MountCommand\obj\Debug\MountCommand.pdb

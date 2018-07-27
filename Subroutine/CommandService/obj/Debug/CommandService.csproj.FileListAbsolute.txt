@@ -1,0 +1,5 @@
+C:\Users\Administrator\Desktop\test_Chat\Subroutine\Subroutine\bin\Debug\CommandService.dll
+C:\Users\Administrator\Desktop\test_Chat\Subroutine\Subroutine\bin\Debug\CommandService.pdb
+C:\Users\Administrator\Desktop\test_Chat\Subroutine\CommandService\obj\Debug\CommandService.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\test_Chat\Subroutine\CommandService\obj\Debug\CommandService.dll
+C:\Users\Administrator\Desktop\test_Chat\Subroutine\CommandService\obj\Debug\CommandService.pdb

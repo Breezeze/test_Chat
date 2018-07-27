@@ -1,4 +1,0 @@
-C:\Users\Administrator\Desktop\test_Chat\Subroutine\Subroutine\bin\Debug\CommandClass.dll
-C:\Users\Administrator\Desktop\test_Chat\Subroutine\Subroutine\bin\Debug\CommandClass.pdb
-C:\Users\Administrator\Desktop\test_Chat\Subroutine\CommandClass\obj\Debug\CommandClass.dll
-C:\Users\Administrator\Desktop\test_Chat\Subroutine\CommandClass\obj\Debug\CommandClass.pdb
