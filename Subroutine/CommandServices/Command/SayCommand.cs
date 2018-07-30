@@ -8,9 +8,13 @@ namespace CommandServices
 {
     public class SayCommand : ICommand
     {
-        public string Do(string parameters)
+        public string CommandName { get { return "say"; } }
+        public string Behavior { get { return "消息发送"; } }
+        public bool IsStore { get { return true; } }
+
+        public void Do(params string[] parameter)
         {
-            return "已将消息“" + parameters + "”发送给对方！";
+            Console.WriteLine("已将消息“" + parameter[0] + "”发送给对方！");
         }
     }
 }

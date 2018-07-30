@@ -8,9 +8,13 @@ namespace CommandServices
 {
     public class MusicCommand : ICommand
     {
-        public string Do(string parameters)
+        public string CommandName { get { return "music"; } }
+        public string Behavior { get { return "歌曲推荐"; } }
+        public bool IsStore { get { return true; } }
+
+        public void Do(params string[] parameter)
         {
-            return "已将名为“" + parameters + "”的歌曲推荐给对方！";
+            Console.WriteLine("已将名为“" + parameter[0] + "”的歌曲推荐给对方！");
         }
-    }
+}
 }

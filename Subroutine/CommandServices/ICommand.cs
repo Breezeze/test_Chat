@@ -11,6 +11,24 @@ namespace CommandServices
     /// </summary>
     public interface ICommand
     {
-        string Do(string msg);
+        /// <summary>
+        /// 指令关键字
+        /// </summary>
+        string CommandName { get; }
+        /// <summary>
+        /// 行为
+        /// </summary>
+        string Behavior { get; }
+        /// <summary>
+        /// 是否记录
+        /// </summary>
+        bool IsStore { get; }
+
+        /// <summary>
+        /// 具体实现
+        /// </summary>
+        /// <param name="msg"></param>
+        /// <returns></returns>
+        void Do(params string[] parameter);
     }
 }

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using CommandServices;
+using LogProcessor;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,76 +8,71 @@ using System.Threading.Tasks;
 
 namespace CommandProcessor
 {
+    /// <summary>
+    /// 代码分析类
+    /// </summary>
     public static class AnalysisCode
     {
         /// <summary>
-        /// 解析命令行
+        ///  解析命令行
         /// </summary>
-        /// <param name="cmd">指令关键词</param>
-        /// <param name="parameter">参数</param>
+        /// <param name="userInput">用户输入</param>
         /// <returns></returns>
-        public static string AnalysisUserInput(string cmd, string parameter)
+        public static bool AnalysisOneCode(string userInput)
         {
+            string[] parameters;
+            string cmd = SeparationCode(out parameters, userInput);
+            ICommand cmdClass = null;
+
+            if (LoadCommandSet.GetProcessClass(cmd) == null)
+            {
+                Console.WriteLine("未知命令“" + cmd + "”！");
+                return false;
+            }
+            else
+            {
+                cmdClass = LoadCommandSet.GetProcessClass(cmd);
+            }
             try
             {
-                #region 初始版本
-
-                //switch (cmd)
-                //{
-                //    case "say":
-                //        //发送字符串给指定好友
-                //        Console.WriteLine("已将消息“{0}”发送给对方！", msg);
-                //        break;
-                //    case "file":
-                //        if (File.Exists(msg))
-                //        {
-                //            //发送文件
-                //            Console.WriteLine("已将路径为“{0}”的文件发送给对方！", msg);
-                //        }
-                //        else
-                //        {
-                //            Console.WriteLine("请检查该文件（“{0}”）是否存在！", msg);
-                //        }
-                //        break;
-                //    case "music":
-                //        Console.WriteLine("已将名为“{0}”的歌曲推荐给对方！", msg);
-                //        break;
-                //    case "acticle":
-                //        Console.WriteLine("已将名为“{0}”的文章推荐给对方！", msg);
-                //        break;
-                //    default:
-                //        Console.WriteLine("未知命令“{0}”！", str);
-                //        break;
-                //}
-
-                #endregion
-
-                if (LoadCommandSet.GetProcessClass(cmd) == null)
+                cmdClass.Do(parameters);
+                if (cmdClass.IsStore)
                 {
-                    throw new Exception("未知命令“" + cmd + "”！");
+                    if (StoreLog.StoreExecutiveOutcome(cmdClass.CommandName, cmdClass.Behavior, parameters, true, null))
+                    {
+                        Console.WriteLine("日志记录成功。");
+                    }
                 }
+                return true;
             }
             catch (Exception ex)
             {
-                return ex.Message;
+                Console.WriteLine("出现无法处理的错误！请重试！\n错误信息为：" + ex.Message);
+                if (StoreLog.StoreExecutiveOutcome(cmdClass.CommandName, cmdClass.Behavior, parameters, false, ex.Message))
+                {
+                    Console.WriteLine("已记录本次错误。");
+                }
+                return false;
             }
-            try
-            {
-                return LoadCommandSet.GetProcessClass(cmd).Do(parameter);
-            }
-            catch (Exception ex)
-            {
-                return "出现未知错误！请重试！";
-            }
-
         }
 
-        /// <summary>
-        /// 日志存储
-        /// </summary>
-        private static void LogRecord()
-        {
 
+        private static string SeparationCode(out string[] parameters, string userInput)
+        {
+            string cmd;
+            int colonIndex = userInput.IndexOf(':');
+
+            if (colonIndex != -1)
+            {
+                cmd = userInput.Substring(0, colonIndex);
+                parameters = userInput.Substring(colonIndex + 1).Split(new char[] { '&' }, StringSplitOptions.RemoveEmptyEntries);
+            }
+            else
+            {
+                cmd = userInput;
+                parameters = null;
+            }
+            return cmd;
         }
     }
 }

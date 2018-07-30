@@ -20,7 +20,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <PlatformTarget>x64</PlatformTarget>
+    <PlatformTarget>x86</PlatformTarget>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -49,6 +49,10 @@
     <ProjectReference Include="..\CommandServices\CommandServices.csproj">
       <Project>{038c64fc-7e5e-4a38-9b62-94f913a1b029}</Project>
       <Name>CommandServices</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LogProcessor\LogProcessor.csproj">
+      <Project>{9bef52e0-8f11-44ab-bd3d-4d61f74352b3}</Project>
+      <Name>LogProcessor</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

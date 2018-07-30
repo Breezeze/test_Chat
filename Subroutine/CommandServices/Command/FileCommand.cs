@@ -8,9 +8,13 @@ namespace CommandServices
 {
     public class FileCommand : ICommand
     {
-        public  string Do(string parameters)
+        public string CommandName { get { return "file"; } }
+        public string Behavior { get { return "文件发送"; } }
+        public bool IsStore { get { return true; } }
+
+        public void Do(params string[] parameter)
         {
-            return "已将路径为“" + parameters + "”的文件发送给对方！";
+            Console.WriteLine("已将路径为“" + parameter[0] + "”的文件发送给对方！");
         }
-    }
+}
 }

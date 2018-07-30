@@ -2,3 +2,6 @@ C:\Users\Administrator\Desktop\test_Chat\Subroutine\UserInterface\bin\Debug\Comm
 C:\Users\Administrator\Desktop\test_Chat\Subroutine\UserInterface\bin\Debug\CommandServices.pdb
 C:\Users\Administrator\Desktop\test_Chat\Subroutine\CommandServices\obj\Debug\CommandServices.dll
 C:\Users\Administrator\Desktop\test_Chat\Subroutine\CommandServices\obj\Debug\CommandServices.pdb
+C:\Users\Administrator\Desktop\test_Chat\Subroutine\CommandServices\bin\Debug\CommandServices.dll
+C:\Users\Administrator\Desktop\test_Chat\Subroutine\CommandServices\bin\Debug\CommandServices.pdb
+C:\Users\Administrator\Desktop\test_Chat\Subroutine\CommandServices\obj\Debug\CommandServices.csprojResolveAssemblyReference.cache

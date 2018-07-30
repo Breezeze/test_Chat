@@ -8,9 +8,13 @@ namespace CommandServices
 {
     public class ActicleCommand : ICommand
     {
-        public  string Do(string parameters)
+        public string CommandName { get { return "acticle"; } }
+        public string Behavior { get { return "文章分享"; } }
+        public bool IsStore { get { return true; } }
+
+        public void Do(params string[] parameter)
         {
-            return "已将名为“" + parameters + "”的文章推荐给对方！";
+            Console.WriteLine("已将名为“" + parameter[0] + "”的文章推荐给对方！");
         }
     }
 }
