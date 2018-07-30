@@ -6,15 +6,15 @@ using System.Threading.Tasks;
 
 namespace CommandServices
 {
-    public class FileCommand : ICommand
+    public class FileCommand : BaseCommand
     {
-        public string CommandName { get { return "file"; } }
-        public string Behavior { get { return "文件发送"; } }
-        public bool IsStore { get { return true; } }
+        public override string CommandName { get { return "file"; } }
+        public override string Behavior { get { return "文件发送"; } }
+        public override bool IsStore { get { return true; } }
 
-        public void Do(params string[] parameter)
+        public override void Do(params string[] parameter)
         {
             Console.WriteLine("已将路径为“" + parameter[0] + "”的文件发送给对方！");
         }
-}
+    }
 }

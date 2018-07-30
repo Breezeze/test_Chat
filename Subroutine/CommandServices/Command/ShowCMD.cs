@@ -6,15 +6,15 @@ using System.Threading.Tasks;
 
 namespace CommandServices.Command
 {
-    public class ShowCMD : ICommand
+    public class ShowCMD : BaseCommand
     {
-        public string Behavior { get { return "获取CMD格式"; } }
-        public string CommandName { get { return "CMD"; } }
-        public bool IsStore { get { return false; } }
+        public override string Behavior { get { return "获取CMD格式"; } }
+        public override string CommandName { get { return "CMD"; } }
+        public override bool IsStore { get { return false; } }
 
-        public string[] CommandsName { get; set; }
+        public  string[] CommandsName { get; set; }
 
-        public void Do(params string[] parameters)
+        public override void Do(params string[] parameters)
         {
             string _tip = "命令行语法为：\n 1. 命令行关键字 + 关键词参数 + \":\" + 参数\n2. 命令行关键词\n"
                        + "命令行关键字有：\n";

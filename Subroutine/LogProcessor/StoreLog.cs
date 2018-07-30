@@ -15,10 +15,6 @@ namespace LogProcessor
         /// <summary>
         /// 存储代码执行结果
         /// </summary>
-        /// <param name="cmd"></param>
-        /// <param name="parameter"></param>
-        /// <param name="success"></param>
-        /// <returns></returns>
         public static bool StoreExecutiveOutcome(string cmd, string behavior, string[] parameters, bool success, string FailedInfo)
         {
             string logPath = "ChatLog.txt";
@@ -26,10 +22,17 @@ namespace LogProcessor
 
             try
             {
-                msg += "\r\n用户使用“" + cmd + "”命令，参数为：“" + parameters[0];
+                msg += "\r\n用户使用“" + cmd + "”命令";
                 for (int i = 1; i < parameters.Length; i++)
                 {
-                    msg += "， “" + parameters[i] + "”";
+                    if (i == 0)
+                    {
+                        msg += " \n参数为：“" + parameters[i];
+                    }
+                    else
+                    {
+                        msg += "， “" + parameters[i] + "”";
+                    }
                 }
                 msg += "\r\n“" + behavior + "”" + (success ? "成功。\r\n" : "失败。\r\n原因是：" + FailedInfo + "。\r\n");
                 using (FileStream fs = new FileStream(logPath, FileMode.Append))
@@ -39,10 +42,12 @@ namespace LogProcessor
                         sw.WriteLine(msg);
                     }
                 }
+                Console.WriteLine("日志记录成功。");
                 return true;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                Console.WriteLine("日志记录失败。\n错误信息：" + ex.Message);
                 return false;
             }
         }

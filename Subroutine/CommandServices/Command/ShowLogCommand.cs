@@ -7,13 +7,13 @@ using System.Threading.Tasks;
 
 namespace CommandServices.Command
 {
-    public class ShowLogCommand : ICommand
+    public class ShowLogCommand : BaseCommand
     {
-        public string Behavior { get { return "查看日志"; } }
-        public string CommandName { get { return "showlog"; } }
-        public bool IsStore { get { return false; } }
+        public override string Behavior { get { return "查看日志"; } }
+        public override string CommandName { get { return "showlog"; } }
+        public override bool IsStore { get { return false; } }
 
-        public void Do(params string[] parameter)
+        public override void Do(params string[] parameter)
         {
             string path = "ChatLog.txt";
 

@@ -20,11 +20,6 @@ namespace CommandServices
         /// </summary>
         string Behavior { get; }
         /// <summary>
-        /// 是否记录
-        /// </summary>
-        bool IsStore { get; }
-
-        /// <summary>
         /// 具体实现
         /// </summary>
         /// <param name="msg"></param>

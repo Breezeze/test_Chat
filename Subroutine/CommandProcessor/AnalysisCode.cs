@@ -18,45 +18,27 @@ namespace CommandProcessor
         /// </summary>
         /// <param name="userInput">用户输入</param>
         /// <returns></returns>
-        public static bool AnalysisOneCode(string userInput)
+        public static void AnalysisOneCode(string userInput)
         {
             string[] parameters;
             string cmd = SeparationCode(out parameters, userInput);
-            ICommand cmdClass = null;
+            BaseCommand cmdClass = LoadCommandSet.GetProcessClass(cmd);
 
-            if (LoadCommandSet.GetProcessClass(cmd) == null)
+            if (cmdClass == null)
             {
                 Console.WriteLine("未知命令“" + cmd + "”！");
-                return false;
+                return;
             }
-            else
-            {
-                cmdClass = LoadCommandSet.GetProcessClass(cmd);
-            }
-            try
-            {
-                cmdClass.Do(parameters);
-                if (cmdClass.IsStore)
-                {
-                    if (StoreLog.StoreExecutiveOutcome(cmdClass.CommandName, cmdClass.Behavior, parameters, true, null))
-                    {
-                        Console.WriteLine("日志记录成功。");
-                    }
-                }
-                return true;
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("出现无法处理的错误！请重试！\n错误信息为：" + ex.Message);
-                if (StoreLog.StoreExecutiveOutcome(cmdClass.CommandName, cmdClass.Behavior, parameters, false, ex.Message))
-                {
-                    Console.WriteLine("已记录本次错误。");
-                }
-                return false;
-            }
+            cmdClass.Do(parameters);
+            cmdClass.Store(parameters);
         }
 
-
+        /// <summary>
+        /// 分离用户输入的关键词和参数
+        /// </summary>
+        /// <param name="parameters"></param>
+        /// <param name="userInput"></param>
+        /// <returns></returns>
         private static string SeparationCode(out string[] parameters, string userInput)
         {
             string cmd;

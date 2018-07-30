@@ -17,28 +17,27 @@ namespace CommandProcessor
         /// </summary>
         static LoadCommandSet()
         {
-            _subClassList = new Dictionary<string, ICommand>();
+            _subClassList = new Dictionary<string, BaseCommand>();
             string[] commandsName;
 
             List<Type> cmdTypeList = System.Reflection.Assembly.LoadFrom("CommandServices.dll").GetTypes()//读取CommandService中的所有类
-              .Where(t => t.GetInterfaces().Contains(typeof(ICommand))).ToList();//将实现ICommand接口的类存入集合
+              .Where(t => t.BaseType == typeof(BaseCommand)).ToList();//将实现ICommand接口的类存入集合
             commandsName = new string[cmdTypeList.Count];
             for (int i = 0; i < cmdTypeList.Count; i++)//将集合中的每项元素存入_subClassList
             {
-                ICommand cmdClass = (ICommand)Activator.CreateInstance(cmdTypeList[i]);
+                BaseCommand cmdClass = (BaseCommand)Activator.CreateInstance(cmdTypeList[i]);
                 _subClassList.Add(cmdClass.CommandName, cmdClass);
                 commandsName[i] = cmdClass.CommandName;
             }
            ((CommandServices.Command.ShowCMD)_subClassList["CMD"]).CommandsName = commandsName;
         }
 
-        private static Dictionary<string, ICommand> _subClassList;
+        private static Dictionary<string, BaseCommand> _subClassList;
 
         /// <summary>
         /// 根据指令关键词获取CMD处理程序
         /// </summary>
-        /// <returns></returns>
-        internal static ICommand GetProcessClass(string typename)
+        internal static BaseCommand GetProcessClass(string typename)
         {
             return _subClassList.ContainsKey(typename) ? _subClassList[typename] : null;
         }
