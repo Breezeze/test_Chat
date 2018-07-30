@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace test_chattools.cs
+namespace Test_ChatTools.cs
 {
     public static class FunctionClass
     {

@@ -13,3 +13,5 @@ C:\Users\Administrator\Desktop\新建文件夹\test_Chat\test_chattools\obj\Debu
 C:\Users\Administrator\Desktop\test_Chat\test_chattools\bin\Debug\test_chattools.exe.config
 C:\Users\Administrator\Desktop\test_Chat\test_chattools\obj\Debug\test_chattools.exe
 C:\Users\Administrator\Desktop\test_Chat\test_chattools\obj\Debug\test_chattools.pdb
+C:\Users\Administrator\Desktop\test_Chat\Test_ChatTools\bin\Debug\Test_ChatTools.exe
+C:\Users\Administrator\Desktop\test_Chat\Test_ChatTools\bin\Debug\Test_ChatTools.pdb

@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using test_chattools.cs;
+using Test_ChatTools.cs;
 
-namespace test_chattools
+namespace Test_ChatTools
 {
     public class Program
     {
