@@ -10,12 +10,12 @@ namespace LogProcessor
     /// <summary>
     /// 日志存储类
     /// </summary>
-    public static class StoreLog
+    public static class RecordLog
     {
         /// <summary>
-        /// 存储代码执行结果
+        /// 记录代码执行结果
         /// </summary>
-        public static bool StoreExecutiveOutcome(string cmd, string behavior, string[] parameters, bool success, string FailedInfo)
+        public static bool RecordExecutiveOutcome(string cmd, string behavior, string[] parameters, bool isSuccess, string FailedInfo)
         {
             string logPath = "ChatLog.txt";
             string msg = DateTime.Now.ToString("yy-MM-dd HH:mm:ss");
@@ -23,18 +23,18 @@ namespace LogProcessor
             try
             {
                 msg += "\r\n用户使用“" + cmd + "”命令";
-                for (int i = 1; i < parameters.Length; i++)
+                for (int i = 0; i < parameters.Length; i++)
                 {
                     if (i == 0)
                     {
-                        msg += " \n参数为：“" + parameters[i];
+                        msg += " \n参数为：“" + parameters[i] + "”";
                     }
                     else
                     {
                         msg += "， “" + parameters[i] + "”";
                     }
                 }
-                msg += "\r\n“" + behavior + "”" + (success ? "成功。\r\n" : "失败。\r\n原因是：" + FailedInfo + "。\r\n");
+                msg += "\r\n“" + behavior + "”" + (isSuccess ? "成功。\r\n" : "失败。\r\n原因是：" + FailedInfo + "。\r\n");
                 using (FileStream fs = new FileStream(logPath, FileMode.Append))
                 {
                     using (StreamWriter sw = new StreamWriter(fs, Encoding.UTF8))

@@ -1,10 +1,6 @@
-﻿using CommandServices;
-using LogProcessor;
+﻿using AuditContent;
+using CommandServices;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CommandProcessor
 {
@@ -22,15 +18,16 @@ namespace CommandProcessor
         {
             string[] parameters;
             string cmd = SeparationCode(out parameters, userInput);
+            IPrepare prepare = new Admin();
             BaseCommand cmdClass = LoadCommandSet.GetProcessClass(cmd);
 
+            prepare.Send(userInput);
             if (cmdClass == null)
             {
                 Console.WriteLine("未知命令“" + cmd + "”！");
                 return;
             }
-            cmdClass.Do(parameters);
-            cmdClass.Store(parameters);
+            cmdClass.ExecuteOperation(parameters);
         }
 
         /// <summary>

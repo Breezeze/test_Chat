@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace AuditContent
 {
-    public class UploadToAdmin : IUpload
+    public class Server : IPrepare
     {
-        public void Upload(string userInput)
+        public void Send(string userInput)
         {
-            Console.WriteLine("已发送给管理员。");
+            Console.WriteLine("已发送至服务器。");
         }
     }
 }

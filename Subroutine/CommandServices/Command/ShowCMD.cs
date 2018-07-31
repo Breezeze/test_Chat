@@ -10,12 +10,21 @@ namespace CommandServices.Command
     {
         public override string Behavior { get { return "获取CMD格式"; } }
         public override string CommandName { get { return "CMD"; } }
-        public override bool IsStore { get { return false; } }
+        protected override bool IsStorable { get { return false; } }
+        protected override int MaxParaNum { get { return 0; } }
+        protected override int MinParaNum { get { return 0; } }
 
-        public  string[] CommandsName { get; set; }
+        /// <summary>
+        /// 存储所有指令集名字
+        /// </summary>
+        public string[] CommandsName { get; set; }
 
-        public override void Do(params string[] parameters)
+        protected override void Do()
         {
+            if (parameters != null)
+            {
+                throw new Exception(CommandName + "指令无参数！请重试！");
+            }
             string _tip = "命令行语法为：\n 1. 命令行关键字 + 关键词参数 + \":\" + 参数\n2. 命令行关键词\n"
                        + "命令行关键字有：\n";
             for (int i = 0; i < CommandsName.Length; i++)

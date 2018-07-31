@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace AuditContent
 {
-    public interface IUpload
+    public interface IPrepare   
     {
-        void Upload(string userInput);
+        void Send(string userInput);
     }
 }

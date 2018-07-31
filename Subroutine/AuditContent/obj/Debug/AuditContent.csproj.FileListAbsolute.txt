@@ -2,3 +2,4 @@ C:\Users\Administrator\Desktop\Test_Chat\Subroutine\AuditContent\bin\Debug\Audit
 C:\Users\Administrator\Desktop\Test_Chat\Subroutine\AuditContent\bin\Debug\AuditContent.pdb
 C:\Users\Administrator\Desktop\Test_Chat\Subroutine\AuditContent\obj\Debug\AuditContent.dll
 C:\Users\Administrator\Desktop\Test_Chat\Subroutine\AuditContent\obj\Debug\AuditContent.pdb
+C:\Users\Administrator\Desktop\Test_Chat\Subroutine\AuditContent\obj\Debug\AuditContent.csprojResolveAssemblyReference.cache

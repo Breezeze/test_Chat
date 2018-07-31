@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace CommandServices
+﻿namespace CommandServices
 {
     /// <summary>
     /// 指令实现
@@ -24,6 +18,6 @@ namespace CommandServices
         /// </summary>
         /// <param name="msg"></param>
         /// <returns></returns>
-        void Do(params string[] parameter);
+        void ExecuteOperation(params string[] parameters);
     }
 }

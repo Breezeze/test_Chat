@@ -1,37 +1,48 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace CommandServices.Command
 {
     public class ShowLogCommand : BaseCommand
     {
+        /// <summary>
+        /// 日志文件路径
+        /// </summary>
+        private string logFilePath = "ChatLog.txt";
+
         public override string Behavior { get { return "查看日志"; } }
         public override string CommandName { get { return "showlog"; } }
-        public override bool IsStore { get { return false; } }
+        protected override bool IsStorable { get { return false; } }
+        protected override int MaxParaNum { get { return 0; } }
+        protected override int MinParaNum { get { return 0; } }
 
-        public override void Do(params string[] parameter)
+        protected override void Prepare(string[] parameters)
         {
-            string path = "ChatLog.txt";
+            base.parameters = parameters;
+            IsValidPara();
+            IsFileExists();
+        }
 
-            if (File.Exists(path))
+        private void IsFileExists()
+        {
+            if (!File.Exists(logFilePath))
             {
-                StreamReader sr = new StreamReader(path, Encoding.UTF8);
-                String line;
-                while ((line = sr.ReadLine()) != null)
-                {
-                    Console.WriteLine(line.ToString());
-                }
-                Console.WriteLine("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-                Console.WriteLine("日志结束！");
+                throw new Exception("日志文件丢失，无法查看！");
             }
-            else
+        }
+
+        protected override void Do()
+        {
+            StreamReader sr = new StreamReader(logFilePath, Encoding.UTF8);
+            string line;
+            while ((line = sr.ReadLine()) != null)
             {
-                Console.WriteLine("日志文件丢失，无法查看！");
+                Console.WriteLine(line);
             }
+            Console.WriteLine("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+            Console.WriteLine("日志结束！");
         }
     }
 }
+

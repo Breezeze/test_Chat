@@ -10,11 +10,13 @@ namespace CommandServices
     {
         public override string CommandName { get { return "music"; } }
         public override string Behavior { get { return "歌曲推荐"; } }
-        public override bool IsStore { get { return true; } }
+        protected override bool IsStorable { get { return true; } }
+        protected override int MaxParaNum { get { return 1; } }
+        protected override int MinParaNum { get { return 1; } }
 
-        public override void Do(params string[] parameter)
+        protected override void Do()
         {
-            Console.WriteLine("已将名为“" + parameter[0] + "”的歌曲推荐给对方！");
+            Console.WriteLine("已将名为“" + parameters[0] + "”的歌曲推荐给对方！");
         }
     }
 }

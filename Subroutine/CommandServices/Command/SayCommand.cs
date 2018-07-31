@@ -10,11 +10,13 @@ namespace CommandServices
     {
         public override string CommandName { get { return "say"; } }
         public override string Behavior { get { return "消息发送"; } }
-        public override bool IsStore { get { return true; } }
+        protected override bool IsStorable { get { return true; } }
+        protected override int MaxParaNum { get { return 1; } }
+        protected override int MinParaNum { get { return 1; } }
 
-        public override void Do(params string[] parameter)
+        protected override void Do()
         {
-            Console.WriteLine("已将消息“" + parameter[0] + "”发送给对方！");
+            Console.WriteLine("已将消息“" + parameters[0] + "”发送给对方！");
         }
     }
 }

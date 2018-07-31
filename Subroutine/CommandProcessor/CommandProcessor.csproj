@@ -46,6 +46,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\AuditContent\AuditContent.csproj">
+      <Project>{cc507673-e5b0-4f52-9c0f-b52dac2d8b9e}</Project>
+      <Name>AuditContent</Name>
+    </ProjectReference>
     <ProjectReference Include="..\CommandServices\CommandServices.csproj">
       <Project>{038c64fc-7e5e-4a38-9b62-94f913a1b029}</Project>
       <Name>CommandServices</Name>

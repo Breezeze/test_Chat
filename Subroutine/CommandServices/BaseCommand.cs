@@ -6,43 +6,143 @@ using System.Threading.Tasks;
 
 namespace CommandServices
 {
-    public class BaseCommand : ICommand, IStore
+    public abstract class BaseCommand : ICommand
     {
-        public virtual string Behavior
+        /// <summary>
+        /// 参数
+        /// </summary>
+        protected string[] parameters;
+        /// <summary>
+        /// 运行结果
+        /// </summary>
+        protected bool? isSuccess;
+        /// <summary>
+        /// 运行失败信息
+        /// </summary>
+        protected string failMsg;
+
+        /// <summary>
+        /// 行为，形容指令作用
+        /// </summary>
+        public abstract string Behavior
         {
-            get
+            get;
+        }
+
+        /// <summary>
+        /// 指令名
+        /// </summary>
+        public abstract string CommandName
+        {
+            get;
+        }
+
+        /// <summary>
+        /// 是否可存储于日志
+        /// </summary>
+        protected abstract bool IsStorable
+        {
+            get;
+        }
+
+        /// <summary>
+        /// 最大参数个数
+        /// </summary>
+        protected abstract int MaxParaNum
+        {
+            get;
+        }
+
+        /// <summary>
+        /// 最小参数个数
+        /// </summary>
+        protected abstract int MinParaNum
+        {
+            get;
+        }
+
+        /// <summary>
+        /// 具体实现，核心代码
+        /// </summary>
+        /// <param name="parameters"></param>
+        protected abstract void Do();
+
+        /// <summary>
+        /// 执行流程
+        /// </summary>
+        /// <param name="parameters"></param>
+        public void ExecuteOperation(params string[] parameters)
+        {
+            try
             {
-                throw new NotImplementedException();
+                Prepare(parameters);
+                Do();
+                isSuccess = true;
+            }
+            catch (Exception ex)
+            {
+                isSuccess = false;
+                failMsg = ex.Message;
+                Console.WriteLine("指令运行失败！\n" + ex.Message);
+            }
+            finally
+            {
+                End();
             }
         }
 
-        public virtual string CommandName
+
+        /// <summary>
+        /// 指令执行前，准备工作
+        /// </summary>
+        /// <param name="parameters"></param>
+        protected virtual void Prepare(string[] parameters)
         {
-            get
+            this.parameters = parameters;
+            IsValidPara();
+        }
+
+        /// <summary>
+        /// 指令执行后，收尾工作
+        /// </summary>
+        protected virtual void End()
+        {
+            RecordeLog();
+            parameters = null;
+            failMsg = null;
+            isSuccess = null;
+        }
+
+        /// <summary>
+        /// 参数是否规范
+        /// </summary>
+        /// <param name="parameters"></param>
+        /// <returns></returns>
+        protected void IsValidPara()
+        {
+            string msg = CommandName + "指令的参数个数，规定为" + MinParaNum + (MinParaNum == MaxParaNum ? "" : "至" + MaxParaNum) + "个！";
+            if (parameters == null)
             {
-                throw new NotImplementedException();
+                if (MinParaNum != 0)
+                {
+                    throw new Exception(msg);
+                }
+            }
+            else if (parameters.Length < MinParaNum || parameters.Length > MaxParaNum)
+            {
+                throw new Exception(msg);
             }
         }
 
-        public virtual bool IsStore
+        /// <summary>
+        /// 记录日志
+        /// </summary>
+        /// <param name="parameters"></param>
+        protected void RecordeLog()
         {
-            get
+            if (this.IsStorable)
             {
-                throw new NotImplementedException();
-            }
-        }
-
-        public virtual void Do(params string[] parameter)
-        {
-            throw new NotImplementedException();
-        }
-
-
-        public void Store(string[] parameters)
-        {
-            if (this.IsStore)
-            {
-                LogProcessor.StoreLog.StoreExecutiveOutcome(this.CommandName, this.Behavior, parameters, true, null);
+                LogProcessor.RecordLog.RecordExecutiveOutcome(CommandName, Behavior, parameters, (bool)isSuccess, failMsg);
             }
         }
     }
