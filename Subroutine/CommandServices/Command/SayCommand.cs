@@ -8,11 +8,11 @@ namespace CommandServices
 {
     public class SayCommand : BaseCommand
     {
-        public override string CommandName { get { return "say"; } }
-        public override string Behavior { get { return "消息发送"; } }
-        protected override bool IsStorable { get { return true; } }
-        protected override int MaxParaNum { get { return 1; } }
-        protected override int MinParaNum { get { return 1; } }
+        public override string CommandName => "say";
+        public override string Behavior => "消息发送";
+        protected override bool IsStorable => true;
+        protected override int MaxParaNum => 1;
+        protected override int MinParaNum => 1;
 
         protected override void Do()
         {

@@ -24,7 +24,7 @@ namespace CommandProcessor
             prepare.Send(userInput);
             if (cmdClass == null)
             {
-                Console.WriteLine("未知命令“" + cmd + "”！");
+                Console.WriteLine($"未知命令“{cmd}”！");
                 return;
             }
             cmdClass.ExecuteOperation(parameters);

@@ -8,11 +8,11 @@ namespace CommandServices
 {
     public class FileCommand : BaseCommand
     {
-        public override string CommandName { get { return "file"; } }
-        public override string Behavior { get { return "文件发送"; } }
-        protected override bool IsStorable { get { return true; } }
-        protected override int MaxParaNum { get { return 1; } }
-        protected override int MinParaNum { get { return 1; } }
+        public override string CommandName => "file";
+        public override string Behavior => "文件发送";
+        protected override bool IsStorable => true;
+        protected override int MaxParaNum => 1;
+        protected override int MinParaNum => 1;
 
         protected override void Do()
         {

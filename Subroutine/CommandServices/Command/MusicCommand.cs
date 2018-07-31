@@ -8,11 +8,11 @@ namespace CommandServices
 {
     public class MusicCommand : BaseCommand
     {
-        public override string CommandName { get { return "music"; } }
-        public override string Behavior { get { return "歌曲推荐"; } }
-        protected override bool IsStorable { get { return true; } }
-        protected override int MaxParaNum { get { return 1; } }
-        protected override int MinParaNum { get { return 1; } }
+        public override string CommandName => "music";
+        public override string Behavior => "歌曲推荐";
+        protected override bool IsStorable => true;
+        protected override int MaxParaNum => 1;
+        protected override int MinParaNum => 1;
 
         protected override void Do()
         {

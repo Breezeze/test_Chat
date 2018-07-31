@@ -16,6 +16,8 @@ namespace UserInterface
                 userInput = Console.ReadLine();
                 CommandProcessor.AnalysisCode.AnalysisOneCode(userInput);
             } while (userInput != "exit");
+            Console.ReadKey();
+            
         }
     }
 }

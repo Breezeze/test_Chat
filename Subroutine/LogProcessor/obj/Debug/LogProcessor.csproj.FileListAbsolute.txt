@@ -2,3 +2,4 @@ C:\Users\Administrator\Desktop\test_Chat\Subroutine\UserInterface\bin\Debug\LogP
 C:\Users\Administrator\Desktop\test_Chat\Subroutine\UserInterface\bin\Debug\LogProcessor.pdb
 C:\Users\Administrator\Desktop\test_Chat\Subroutine\LogProcessor\obj\Debug\LogProcessor.dll
 C:\Users\Administrator\Desktop\test_Chat\Subroutine\LogProcessor\obj\Debug\LogProcessor.pdb
+C:\Users\Administrator\Desktop\test_Chat\Subroutine\LogProcessor\obj\Debug\LogProcessor.csprojResolveAssemblyReference.cache

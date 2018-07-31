@@ -8,11 +8,11 @@ namespace CommandServices.Command
 {
     public class ShowCMD : BaseCommand
     {
-        public override string Behavior { get { return "获取CMD格式"; } }
-        public override string CommandName { get { return "CMD"; } }
-        protected override bool IsStorable { get { return false; } }
-        protected override int MaxParaNum { get { return 0; } }
-        protected override int MinParaNum { get { return 0; } }
+        public override string CommandName => "CMD";
+        public override string Behavior => "获取CMD格式";
+        protected override bool IsStorable => false;
+        protected override int MaxParaNum => 0;
+        protected override int MinParaNum => 0;
 
         /// <summary>
         /// 存储所有指令集名字

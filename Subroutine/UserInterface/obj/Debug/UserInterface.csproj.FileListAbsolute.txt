@@ -5,10 +5,10 @@ C:\Users\Administrator\Desktop\test_Chat\Subroutine\UserInterface\bin\Debug\User
 C:\Users\Administrator\Desktop\test_Chat\Subroutine\UserInterface\bin\Debug\UserInterface.pdb
 C:\Users\Administrator\Desktop\test_Chat\Subroutine\UserInterface\obj\Debug\UserInterface.exe
 C:\Users\Administrator\Desktop\test_Chat\Subroutine\UserInterface\obj\Debug\UserInterface.pdb
-C:\Users\Administrator\Desktop\Test_Chat\Subroutine\UserInterface\bin\Debug\AuditContent.dll
-C:\Users\Administrator\Desktop\Test_Chat\Subroutine\UserInterface\bin\Debug\CommandServices.dll
-C:\Users\Administrator\Desktop\Test_Chat\Subroutine\UserInterface\bin\Debug\LogProcessor.dll
-C:\Users\Administrator\Desktop\Test_Chat\Subroutine\UserInterface\bin\Debug\CommandProcessor.pdb
-C:\Users\Administrator\Desktop\Test_Chat\Subroutine\UserInterface\bin\Debug\AuditContent.pdb
-C:\Users\Administrator\Desktop\Test_Chat\Subroutine\UserInterface\bin\Debug\CommandServices.pdb
-C:\Users\Administrator\Desktop\Test_Chat\Subroutine\UserInterface\bin\Debug\LogProcessor.pdb
+C:\Users\Administrator\Desktop\test_Chat\Subroutine\UserInterface\bin\Debug\AuditContent.dll
+C:\Users\Administrator\Desktop\test_Chat\Subroutine\UserInterface\bin\Debug\CommandServices.dll
+C:\Users\Administrator\Desktop\test_Chat\Subroutine\UserInterface\bin\Debug\LogProcessor.dll
+C:\Users\Administrator\Desktop\test_Chat\Subroutine\UserInterface\bin\Debug\CommandProcessor.pdb
+C:\Users\Administrator\Desktop\test_Chat\Subroutine\UserInterface\bin\Debug\AuditContent.pdb
+C:\Users\Administrator\Desktop\test_Chat\Subroutine\UserInterface\bin\Debug\CommandServices.pdb
+C:\Users\Administrator\Desktop\test_Chat\Subroutine\UserInterface\bin\Debug\LogProcessor.pdb

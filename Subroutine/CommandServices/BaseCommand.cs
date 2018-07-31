@@ -12,10 +12,12 @@ namespace CommandServices
         /// 参数
         /// </summary>
         protected string[] parameters;
+
         /// <summary>
         /// 运行结果
         /// </summary>
         protected bool? isSuccess;
+
         /// <summary>
         /// 运行失败信息
         /// </summary>
@@ -62,12 +64,6 @@ namespace CommandServices
         }
 
         /// <summary>
-        /// 具体实现，核心代码
-        /// </summary>
-        /// <param name="parameters"></param>
-        protected abstract void Do();
-
-        /// <summary>
         /// 执行流程
         /// </summary>
         /// <param name="parameters"></param>
@@ -83,14 +79,13 @@ namespace CommandServices
             {
                 isSuccess = false;
                 failMsg = ex.Message;
-                Console.WriteLine("指令运行失败！\n" + ex.Message);
+                Console.WriteLine($"指令运行失败！\n{ex.Message}");
             }
             finally
             {
                 End();
             }
         }
-
 
         /// <summary>
         /// 指令执行前，准备工作
@@ -107,7 +102,11 @@ namespace CommandServices
         /// </summary>
         protected virtual void End()
         {
-            RecordeLog();
+            //日志记录
+            if (this.IsStorable)
+            {
+                LogProcessor.RecordLog.RecordExecutiveOutcome(CommandName, Behavior, parameters, (bool)isSuccess, failMsg);
+            }
             parameters = null;
             failMsg = null;
             isSuccess = null;
@@ -120,7 +119,8 @@ namespace CommandServices
         /// <returns></returns>
         protected void IsValidPara()
         {
-            string msg = CommandName + "指令的参数个数，规定为" + MinParaNum + (MinParaNum == MaxParaNum ? "" : "至" + MaxParaNum) + "个！";
+            string msg = $"{CommandName}指令的参数个数，规定为{MinParaNum}" + (MinParaNum == MaxParaNum ? "" : $"至{MaxParaNum}") + "个！";
+
             if (parameters == null)
             {
                 if (MinParaNum != 0)
@@ -135,15 +135,9 @@ namespace CommandServices
         }
 
         /// <summary>
-        /// 记录日志
+        /// 具体实现，核心代码
         /// </summary>
         /// <param name="parameters"></param>
-        protected void RecordeLog()
-        {
-            if (this.IsStorable)
-            {
-                LogProcessor.RecordLog.RecordExecutiveOutcome(CommandName, Behavior, parameters, (bool)isSuccess, failMsg);
-            }
-        }
+        protected abstract void Do();
     }
 }
